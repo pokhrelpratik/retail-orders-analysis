@@ -1,0 +1,6 @@
+notes/
+*_ORIGINAL.ipynb
+*.zip
+.ipynb_checkpoints/
+kaggle.json
+_to_delete*

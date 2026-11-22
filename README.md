@@ -1,8 +1,10 @@
 # Retail Orders Analysis
 
+![Power BI dashboard](charts/powerbi_dashboard.png)
+
 **Question:** Where does this store make money, where does it lose it, and are discounts worth it?
 
-**Tools:** Python (pandas, matplotlib) for cleaning and charts · SQL Server (T-SQL) for analysis
+**Tools:** Python (pandas, matplotlib) · SQL Server (T-SQL) · Power BI (Power Query, DAX) · Excel (formulas, PivotTables)
 
 **Data:** [Retail Orders dataset](https://www.kaggle.com/datasets/ankitbansal06/retail-orders) (Kaggle) — 9,994 order lines, US, 2022–2023.
 
@@ -14,6 +16,14 @@
    - Loaded into SQL Server and checked the row count matched
 2. **Analysis (SQL Server)** — `sql/retail_analysis_queries.sql`
    - 10 queries using CTEs, CASE, HAVING, and window functions (`SUM() OVER`, `RANK() OVER (PARTITION BY)`, `LAG`)
+
+3. **Dashboard (Power BI)** — `retail_powerbi_v2.pbix`
+   - Cleaned the CSV in Power Query (types, bad ship modes, no-price rows, price/profit columns)
+   - DAX measures: Total Revenue, Total Profit, Margin % (`DIVIDE`), Loss Lines (`CALCULATE`)
+   - One-page dashboard: KPI cards, region slicer, cross-filtering charts
+4. **Excel** — `retail_excel_analysis.xlsx`
+   - SUMIFS / COUNTIFS / XLOOKUP summary, 4 PivotTables (with a calculated margin field), pivot charts and a slicer
+   - Numbers checked against the SQL results
 
 ## Findings
 - **Revenue $11.1M, profit $1.04M, margin 9.4%.** Flat year over year (+2.3%).
